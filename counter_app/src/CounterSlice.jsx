@@ -2,8 +2,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
 
-
-
 const counterSlice = createSlice({
   name:"counter",
   initialState:{
