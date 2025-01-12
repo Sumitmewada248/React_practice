@@ -23,6 +23,8 @@ const todoSlice = createSlice({
             state.task=state.task.filter((key)=>{return key.id!=action.payload.id
             })
         }
+
+        
     }
 })
 

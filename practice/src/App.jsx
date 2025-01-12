@@ -20,12 +20,14 @@ const Edit=()=>{
   setBtnStatus(true)
 }
 
+
 const editSave=(id,work)=>{
 setTask(task)
 setBtnStatus(false)
 setNewid(id)
 
 }
+
 
 const Delete=(id)=>{
   dispatch(deleteTask({id:id}))
