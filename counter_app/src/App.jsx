@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
-import { increment, decrement } from "./CounterSlice.jsx";
+import { increment, decrement } from "./CounterSlice";
 
 
 const App = () => {

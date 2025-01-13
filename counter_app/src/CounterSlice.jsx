@@ -27,10 +27,6 @@ decrement:(state)=>{
 
 }
   
-
-
-
-
 })
 
 export default counterSlice.reducer;
