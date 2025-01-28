@@ -1,17 +1,15 @@
-
-const crs=<ol>
-<li>php</li>
-<li>java</li>
-<li>python</li>
-<li>ruby</li>
-</ol>
-
+import Data from "./data";
+import Header from "./header";
+import Footer from "./footer";
 
 const App=()=>{
   return(
     <>
-    <p>Our Courses{crs}</p>
-    
+    <Header/>
+    <hr />
+    <Data/>
+    <hr />
+    <Footer/>
     </>
 
   )
