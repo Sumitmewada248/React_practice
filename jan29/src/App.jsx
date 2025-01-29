@@ -22,8 +22,19 @@ const App=()=>{
       <Route path="StuContact" element={<StuContact />} />
 
       </Route>
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
+      <Route path="about" element={<About />} >
+      <Route path="StuHome" element={<StuHome />} />
+      <Route path="StuAbout" element={<StuAbout />} />
+      <Route path="StuContact" element={<StuContact />} />
+
+      </Route>
+      <Route path="contact" element={<Contact />} >
+      <Route path="StuHome" element={<StuHome />} />
+      <Route path="StuAbout" element={<StuAbout />} />
+      <Route path="StuContact" element={<StuContact />} />
+
+      
+      </Route>
       <Route path="*" element={<h1>404</h1>} />
 
       </Route>

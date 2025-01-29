@@ -3,9 +3,9 @@
 const StuHome = () => {
     return (
         <>
-            <h1>mThis is a StuHome</h1>
+            <h1>This is a StuHome</h1>
 
-        
+
         </>
     );
 }
