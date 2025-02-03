@@ -143,28 +143,57 @@
 
 // export default App
 
+// import { useState } from "react"
+
+// const App = () => {
+//   const [name,setName]=useState("")
+//   const [city,setCity]=useState("")
+  
+// const handelSubmit=()=>{
+//   const input={name:name ,city:city}
+//   console.log(input)
+// }
+
+//   return (
+// <>
+
+
+//  Enter Name: <input type="text"value={name} onChange={(e)=>{setName(e.target.value)}}></input><br />
+//  Enter City: <input type="text" value={city} onChange={(e)=>{setCity(e.target.value)}}></input><br />
+  
+// <button onClick={handelSubmit}>Save</button>
+
+// </>
+
+//   )
+// }
+// export default App
+
+
 import { useState } from "react"
 
-const App = () => {
+const App=()=>{
+
   const [name,setName]=useState("")
-  const [city,setCity]=useState("")
-  
-const handelSubmit=()=>{
-  const input={name:name ,city:city}
+  const [email,setEmail]=useState("")
+  const [pass,setPass]=useState("")
+
+ const handelSubmit=()=>{
+  const input={name:name,email:email ,pass:pass}
   console.log(input)
-}
-
-  return (
-<>
+ }
 
 
- Enter Name: <input type="text"value={name} onChange={(e)=>{setName(e.target.value)}}></input><br />
- Enter City: <input type="text" value={city} onChange={(e)=>{setCity(e.target.value)}}></input><br />
-  
-<button onClick={handelSubmit}>Save</button>
+  return(
+    <>
 
-</>
+    Enter Name :<input type="text" value={name} onChange={(e)=>{setName(e.target.value)}}></input><br />
+    Enter Email :<input type="text" value={email} onChange={(e)=>{setEmail(e.target.value)}}></input><br />
+    Enter Password :<input type="text" value={pass} onChange={(e)=>{setPass(e.target.value)}}></input><br />
 
+
+    <button onClick={handelSubmit}>click</button>
+    </>
   )
 }
 export default App
