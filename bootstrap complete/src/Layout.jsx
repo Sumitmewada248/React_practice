@@ -11,14 +11,15 @@ import Navbar from 'react-bootstrap/Navbar';
 const Layout = () => {
     return (
         <>
-             <Navbar bg="dark" data-bs-theme="dark">
+       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-          <Link to="/home"> <Nav.Link>Home</Nav.Link></Link> 
-            <Link to="/about"> <Nav.Link>About</Nav.Link></Link>
-            <Link to="/product"> <Nav.Link>Product</Nav.Link></Link>    
-            <Link to="/contact"> <Nav.Link>Contact</Nav.Link></Link>
+            <Nav.Link as={Link} to={"home"}>Home</Nav.Link>
+            <Nav.Link as={Link} to={"about"}>About</Nav.Link>
+            <Nav.Link as={Link} to={"product"}>Product</Nav.Link>
+            <Nav.Link as={Link} to={"contact"}>Contact</Nav.Link>
+
           </Nav>
         </Container>
       </Navbar>
