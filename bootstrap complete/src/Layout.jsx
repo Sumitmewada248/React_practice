@@ -27,6 +27,12 @@ const Layout = () => {
 
 <Outlet/>
 
+
+<hr />
+<div id="footer">
+www.mywebpage .com &copy; 2021  All Rights Reserved
+
+</div>
         </>
     )}
         export default Layout;
