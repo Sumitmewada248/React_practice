@@ -174,25 +174,33 @@ import { useState } from "react"
 
 const App=()=>{
 
-  const [name,setName]=useState("")
-  const [email,setEmail]=useState("")
-  const [pass,setPass]=useState("")
-
- const handelSubmit=()=>{
-  const input={name:name,email:email ,pass:pass}
-  console.log(input)
+const [data,setData]=useState({
+  
+})
+ const handelSubmit=(e)=>{
+  const name=e.target.name
+  const value=e.target.value
+  setData((values)=>({...values,[name]:value}))
+ 
+ }
+ const handelInput=()=>{
+   console.log(data)
  }
 
 
   return(
     <>
 
-    Enter Name :<input type="text" value={name} onChange={(e)=>{setName(e.target.value)}}></input><br />
-    Enter Email :<input type="text" value={email} onChange={(e)=>{setEmail(e.target.value)}}></input><br />
-    Enter Password :<input type="text" value={pass} onChange={(e)=>{setPass(e.target.value)}}></input><br />
+
+    <h1>Application Form</h1> <br /><br />
+
+   Enter Name : <input type="text" name="name"  onChange={handelSubmit}/><br />
+   Enter City : <input type="text" name="city"  onChange={handelSubmit} /><br />
+   Enter Email : <input type="email" name="email"   onChange={handelSubmit}/><br />
+   
+<button onClick={handelInput}>click</button>
 
 
-    <button onClick={handelSubmit}>click</button>
     </>
   )
 }
