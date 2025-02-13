@@ -106,7 +106,7 @@
 import Table from 'react-bootstrap/Table';
 import { useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { addTask,delTask,completeTask,UnCompleteTask } from "./todo";
+import { addTask,delTask,completeTask,UnCompleteTask,editTake } from "./todo";
 
 const App = () => {
   const [task,setTask]=useState("")
@@ -135,6 +135,17 @@ const uncomplete=(id)=>{
   setBtnStatus(true)
 }
 
+const Edit=(id)=>{
+  dispatch(editTake({id:newid,work:task}))
+  setBtnStatus(true)
+
+}
+const EditSave=(id,work)=>{
+  setTask(work)
+  setNewid(id)
+  setBtnStatus(false)
+}
+
 let sno=0
 const ans =Data.map((key)=>{
   sno++;
@@ -142,22 +153,22 @@ const ans =Data.map((key)=>{
     <>
     <tr>
       <td>{sno}</td>
-      <td>{key.status=="complete"?(<span style={{color:"red",textDecoration:"line-through"}}>{key.work}</span>):(key.work)}</td>
+      <td>{key.status=="uncomplete"?(<span style={{color:"red",textDecoration:"line-through"}}>{key.work}</span>):(key.work)}</td>
       <td><button style={{backgroundColor:"red",color:"white",borderRadius:"5px",border:"none",padding:"5px"}} onClick={()=>{dispatch(delTask({id:key.id}))}}>Delete</button></td>
       <td>
       {key.status=="uncomplete"?(
         <>
-        <td><button style={{backgroundColor:"green",color:"white",borderRadius:"5px",border:"none",padding:"5px"}} onClick={()=>{complete(key.id)}}>Complete</button></td>
+        <td><button style={{backgroundColor:"green",color:"white",borderRadius:"5px",border:"none",padding:"5px"}} onClick={()=>{complete(key.id)}}>UnComplete</button></td>
         </>
       ):(
         <>
-        <td><button style={{backgroundColor:"orange",color:"white",borderRadius:"5px",border:"none",padding:"5px"}} onClick={()=>{uncomplete(key.id)}}>UnComplete</button></td>
+        <td><button style={{backgroundColor:"orange",color:"white",borderRadius:"5px",border:"none",padding:"5px"}} onClick={()=>{uncomplete(key.id)}}>Complete</button></td>
         </>
       )
       }
       </td>
       <td>
-        <button style={{backgroundColor:"orange",color:"white",borderRadius:"5px",border:"none",padding:"5px"}} >Edit</button>
+        <button style={{backgroundColor:"orange",color:"white",borderRadius:"5px",border:"none",padding:"5px"}} onClick={()=>{EditSave(key.id,key.work)}}>Edit</button>
       </td>
     </tr>
     </>
@@ -172,8 +183,10 @@ const ans =Data.map((key)=>{
 
     
     <input type="text" value={task}  onChange={(e)=>setTask(e.target.value)} style={{width:"20%",height:"30px",marginRight:"5px",padding:"5px",marginLeft:"35%",borderRadius:"5px"}} placeholder='Add Task' />
-    <button onClick={handelSubmit} style={{backgroundColor:"green",color:"white",borderRadius:"5px",border:"none",padding:"5px"}}>Add</button>
-
+    {btnStatus?
+    <button onClick={handelSubmit} style={{backgroundColor:"green",color:"white",borderRadius:"5px",border:"none",padding:"5px"}}>Add</button>:
+    <button onClick={()=>{Edit()}} style={{backgroundColor:"green",color:"white",borderRadius:"5px",border:"none",padding:"5px"}}>Edit Save</button>
+    }
     <Table striped bordered hover width style={{width:"60%",margin:"auto"}} >
       <thead>
         <tr>

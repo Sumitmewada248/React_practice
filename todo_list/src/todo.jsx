@@ -81,11 +81,20 @@ const todoSlice=createSlice({
                 state.task[i].status="uncomplete";
             }
         }
-    }
-    }
+    },
 
+    editTake:(state,actions)=>{
+        for(var i=0;i<state.task.length;i++){
+            if(state.task[i].id==actions.payload.id){
+                state.task[i].work=actions.payload.work;
+            }
+        }
+
+    },
+    
+    }
 
 })
 
-export const {addTask,delTask,completeTask,UnCompleteTask}=todoSlice.actions
+export const {addTask,delTask,completeTask,UnCompleteTask,editTake}=todoSlice.actions
 export default todoSlice.reducer
